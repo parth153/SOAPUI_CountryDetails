@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- THIS IS A BUILD>XML FILE TO BE RUN WITH ANT TO GENERATE JUNIT STYLE REPORT -->
+
+<project basedir="." name="CountryDetails-Automation"  default="testReport" >
+	
+	<target name="CountryDetails">
+			<exec dir="." executable="C:\Program Files (x86)\SmartBear\SoapUI-5.3.0\bin\testrunner.bat">
+				<arg line="-r -j -f 'C:\Users\parth\Desktop\Learning\SOAPUI\CountryDetails' -sSuite1 C:\Users\parth\Desktop\Learning\SOAPUI\CountryDetails\CountryDetails-soapui-project.xml"/> 
+			</exec>
+	</target>
+	
+	<target name="testReport" depends="CountryDetails">
+		<junitreport todir="C:\Users\parth\Desktop\Learning\SOAPUI\CountryDetails">
+		  <fileset dir="C:\Users\parth\Desktop\Learning\SOAPUI\CountryDetails">
+			<include name="TEST-*.xml"/>
+		  </fileset>
+		  <report format="frames" todir="C:\Users\parth\Desktop\Learning\SOAPUI\CountryDetails"/>
+		</junitreport>
+    </target>
+	
+</project>
